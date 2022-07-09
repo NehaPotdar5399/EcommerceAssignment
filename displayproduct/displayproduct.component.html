@@ -1,0 +1,58 @@
+<div class="cust-container">
+    <div class="row">
+        <div class="col-md-3" style="object-fit: cover; border: 2px solid black; padding: 8px 8px;" *ngFor="let products of product; index as i" >
+            <div class="product_card mb-3" style="background-color: #f7e3d9 	;">
+                <div>
+                    <button style="background: none; border: none; margin-left: 85%">
+                        <img
+                          src="https://icons.iconarchive.com/icons/paomedia/small-n-flat/512/heart-icon.png"
+                          height="30px"
+                          width="30px"
+                          style="
+                            margin-top: 0%;
+                            margin-left: 90%;
+                            background: transparent;
+                            border: none;
+                            object-fit: cover;
+                          "
+                        />
+                      </button>
+                      <button style="background: none; border: none; margin-left: 85%"  (click)="addToCart(products.id)">
+                        <img
+                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQjuGl89N_I0gTrM8Mdgev7aIOSXsDdpo19A&usqp=CAU"
+                          height="30px"
+                          width="30px"
+                          style="
+                            margin-top: 0%;
+                            margin-left: 90%;
+                            background: transparent;
+                            border: none;
+                            object-fit: fill;
+                          "
+                        />
+                      </button>
+
+                 <a routerLink="/singleproduct/{{ products.id }}/{{row}}" style="text-decoration: none; color:black;">
+                  <p class="mb-0" style="text-decoration: none">
+                  <img
+                        class="product_img"
+                        style="width: 100%;height:470px; border: 2px inline black; background: none; margin-top: 25px; "
+                        [src]="products.imgUrl"
+                        alt=""
+                      />
+                </p>
+              <p class="product_name">{{ products.name}}</p>
+            </a>    
+            </div>
+              <div class="price_heart">
+                <p class="mb-0" style="text-decoration: none">
+                  Actual Price:{{ products.originalPrice | currency: "INR" }}
+                </p>
+                <p class="mb-0">
+                  Discounted Price:{{ products.discountedPrice | currency: "INR" }}
+                </p>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>

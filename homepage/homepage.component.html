@@ -1,0 +1,325 @@
+<div class="container">
+  <img
+    src="https://everstylish.com/pub/media/wysiwyg/slider/3.jpg"
+    width="100%"
+    style="padding: 10px 10px"
+  />
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div
+          *ngFor="let product of eData; index as i"
+          class="product_card mb-3"
+          style="
+            background-color: #fff2e6;
+            border: 2px solid black;
+            object-fit: cover;
+          "
+        >
+          <button style="background: none; border: none; margin-left: 75%" (click)="addToWishlist(product.id,0)">
+            <img
+              src="https://icons.iconarchive.com/icons/paomedia/small-n-flat/512/heart-icon.png"
+              height="30px"
+              width="30px"
+              style="
+                margin-top: 0%;
+                margin-left: 90%;
+                margin-bottom: 20px;
+                background: transparent;
+                border: none;
+                object-fit: cover;
+              "
+            />
+          </button>
+          <button style="background: none; border: none; margin-left: 75%; padding-bottom: 12px;" (click)="addToCart(product.id,0)">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQjuGl89N_I0gTrM8Mdgev7aIOSXsDdpo19A&usqp=CAU"
+              height="30px"
+              width="30px"
+              style="
+                margin-top: 0%;
+                margin-left: 90%;
+                background: transparent;
+                border: none;
+                object-fit: fill;
+              "
+            />
+          </button>
+
+          <a routerLink="/singleproduct/{{ product.id }}/0"
+            href=""
+            style="
+              font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+                'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+              text-decoration: none;
+              color: black;
+              font-variant-caps: small-caps;
+            "
+          >
+            <img
+              class="product_img"
+              style="width: 100%; height:1440;"
+              [src]="product.imgUrl"
+              alt=""
+            />
+            <div class="card_content">
+              <p class="product_name">{{ product.name }}</p>
+              <div class="price_heart">
+                <p class="mb-0" style="text-decoration: line-through;">
+                  Actual Price:{{ product.originalPrice | currency: "INR" }}
+                </p>
+                <p class="mb-0">
+                  Discounted Price:{{
+                    product.discountedPrice | currency: "INR"
+                  }}
+                </p>
+                <a href=""  style="
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+                  'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                text-decoration: none;
+                color: black;
+                font-variant-caps: small-caps;
+              "
+                  ><i
+                    style="color: rgb(238, 0, 255)"
+                    class="fa-solid fa-heart"
+                  ></i
+                ></a>
+              </div>
+            </div>
+            <!-- {{product['product_image']}} -->
+          </a>
+        </div>
+      </div>
+      <div class="col-md-3" style="object-fit: cover;">
+        <div
+          *ngFor="let product of nData; index as i"
+          class="product_card mb-3"
+          style="
+            background-color: #ffe4cc;
+            border: 2px solid black;
+            object-fit: fill;
+          "
+        >
+          <button style="background: none; border: none; margin-left: 75%">
+            <img 
+              src="https://icons.iconarchive.com/icons/paomedia/small-n-flat/512/heart-icon.png"
+              height="30px"
+              width="30px"
+              style="
+                margin-top: 0%;
+                margin-left: 90%;
+                margin-bottom: 20px;
+                background: transparent;
+                border: none;
+              "
+            />
+          </button>
+          <button style="background: none; border: none; margin-left: 75%" (click)="addToCart(product.id,1)">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQjuGl89N_I0gTrM8Mdgev7aIOSXsDdpo19A&usqp=CAU"
+              height="30px"
+              width="30px"
+              style="
+                margin-top: 0%;
+                margin-left: 90%;
+                background: transparent;
+                border: none;
+              "
+            />
+          </button>
+          <a  routerLink="/singleproduct/{{ product.id }}/1"  style="
+          font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+            'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+          text-decoration: none;
+          color: black;
+          font-variant-caps: small-caps;
+        ">
+            <img
+              class="product_img"
+              style="width: 100%;height:1440;"
+              [src]="product.imgUrl"
+              alt=""
+            />
+            <div class="card_content">
+              <p class="product_name">{{ product.name }}</p>
+              <div class="price_heart">
+                <p class="mb-0" style="text-decoration: line-through;">
+                  {{ product.originalPrice | currency: "INR" }}
+                </p>
+                <p class="mb-0">
+                  {{
+                    product.discountedPrice | currency: "INR"
+                  }}
+                </p>
+
+                <a 
+                  ><i
+                    style="color: rgb(238, 0, 255)"
+                    class="fa-solid fa-heart"
+                  ></i
+                ></a>
+              </div>
+            </div>
+            <!-- {{product['product_image']}} -->
+          </a>
+        </div>
+      </div>
+      <div class="col-md-3" style="object-fit:cover;">
+        <div
+          *ngFor="let product of rData; index as i"
+          class="product_card mb-3"
+          style="
+            background-color: #ffd6b3;
+            border: 2px solid black;
+            object-fit: cover;
+          "
+        >
+          <button style="background: none; border: none; margin-left: 75%">
+            <img
+              src="https://icons.iconarchive.com/icons/paomedia/small-n-flat/512/heart-icon.png"
+              height="30px"
+              width="30px"
+              style="
+                margin-top: 0%;
+                margin-left: 90%;
+                margin-bottom: 20px;
+                background: transparent;
+                border: none;
+                object-fit: cover;
+              "
+            />
+          </button>
+          <button style="background: none; border: none; margin-left: 75%" (click)="addToCart(product.id,2)">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQjuGl89N_I0gTrM8Mdgev7aIOSXsDdpo19A&usqp=CAU"
+              
+              height="30px"
+              width="30px"
+              style="
+                margin-top: 0%;
+                margin-left: 90%;
+                background: transparent;
+                border: none;
+                object-fit: cover;
+              "
+            />
+          </button>
+          <a  routerLink="/singleproduct/{{ product.id }}/2"  style="
+          font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+            'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+          text-decoration: none;
+          color: black;
+          font-variant-caps: small-caps;
+        ">
+            <img
+              class="product_img"
+              style="width: 100%;height:1440;"
+              [src]="product.imgUrl"
+              alt=""
+            />
+            <div class="card_content">
+              <p class="product_name">{{ product.name }}</p>
+              <div class="price_heart">
+                <p class="mb-0" style="text-decoration: line-through;">
+                  Actual Price:{{ product.originalPrice | currency: "INR" }}
+                </p>
+                <p class="mb-0">
+                  Discounted Price:{{
+                    product.discountedPrice | currency: "INR"
+                  }}
+                </p>
+                <a href=""
+                  ><i
+                    style="color: rgb(238, 0, 255)"
+                    class="fa-solid fa-heart"
+                  ></i
+                ></a>
+              </div>
+            </div>
+            <!-- {{product['product_image']}} -->
+          </a>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div
+          *ngFor="let product of bData; index as i"
+          class="product_card mb-3"
+          style="
+            background-color: #ffc999;
+            border: 2px solid black;
+            object-fit: cover;
+          "
+        >
+          <button style="background: none; border: none; margin-left: 75%">
+            <img
+              src="https://icons.iconarchive.com/icons/paomedia/small-n-flat/512/heart-icon.png"
+              height="30px"
+              width="30px"
+              style="
+                margin-top: 0%;
+                margin-left: 90%;
+                margin-bottom: 20px;
+                background: transparent;
+                border: none;
+              "
+            />
+          </button>
+          <button style="background: none; border: none; margin-left: 75%"  (click)="addToCart(product.id,3)">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQjuGl89N_I0gTrM8Mdgev7aIOSXsDdpo19A&usqp=CAU"
+             
+              height="30px"
+              width="30px"
+              style="
+                margin-top: 0%;
+                margin-left: 90%;
+                background: transparent;
+                border: none;
+              "
+            />
+          </button>
+          <a routerLink="/singleproduct/{{ product.id }}/3"  style="
+          font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+            'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+          text-decoration: none;
+          color: black;
+          font-variant-caps: small-caps;
+        ">
+            <img
+              class="product_img"
+              style="width: 100%;height:1440;"
+              [src]="product.imgUrl"
+              alt=""
+            />
+            <div class="card_content">
+              <p
+                class="product_name"
+                style="font-family: cursive; text-decoration: none"
+              >
+                {{ product.name }}
+              </p>
+              <div class="price_heart">
+                <p class="mb-0" style="text-decoration: line-through;">
+                  Actual Price:{{ product.originalPrice | currency: "INR" }}
+                </p>
+                <p class="mb-0">
+                  Discounted Price:{{
+                    product.discountedPrice | currency: "INR"
+                  }}
+                </p>
+                <a href=""
+                  ><i
+                    style="color: rgb(238, 0, 255)"
+                    class="fa-solid fa-heart"
+                  ></i
+                ></a>
+              </div>
+            </div>
+            <!-- {{product['product_image']}} -->
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,281 @@
+<div style="background-color: #d8bfd8">
+  <nav
+    class="navbar navbar-expand-lg navbar-light"
+    style="background-color: #d8bfd8; align-content: stretch"
+  >
+    <div class="container-fluid">
+      <a href="#" class="navbar-brand">
+        <img src="../assets/Conways_Jewellers_Logo-1024x427.jpg" height="100" />
+      </a>
+      <button
+        type="button"
+        class="navbar-toggler"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarCollapse"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="collapse navbar-collapse"
+        id="navbarCollapse"
+        style="background-color: #d8bfd8"
+      >
+        <div class="navbar-nav" style="background-color: #d8bfd8">
+          <a
+            routerLink="/"
+            class="nav-item nav-link active"
+            style="
+              font-weight: 300;
+              font-size: large;
+              padding: 20px 20px;
+              text-align: center;
+            "
+            >Home</a
+          >
+          <a
+            class="nav-item nav-link"
+            style="
+              font-weight: 300;
+              font-size: large;
+              padding: 20px 20px;
+              text-align: center;
+            "
+            routerLink="/displayproduct/earrings/0"
+            >Earrings</a
+          >
+          <a
+            class="nav-item nav-link"
+            style="
+              font-weight: 300;
+              font-size: large;
+              padding: 20px 20px;
+              text-align: center;
+            "
+            routerLink="/displayproduct/necklace/1"
+            >Necklace</a
+          >
+          <a
+            class="nav-item nav-link"
+            style="
+              font-weight: 300;
+              font-size: large;
+              padding: 20px 20px;
+              text-align: center;
+            "
+            routerLink="/displayproduct/rings/2"
+            >Rings</a
+          >
+          <a
+            class="nav-item nav-link"
+            style="
+              font-weight: 300;
+              font-size: large;
+              padding: 20px 20px;
+              text-align: center;
+            "
+            routerLink="/displayproduct/bracelate/3"
+            >Bracelet</a
+          >
+        </div>
+        <div class="navbar-nav ms-auto">
+          <button
+            style="
+              width: 190px;
+              margin-right: 130px;
+              border: none;
+              background: none;
+            "
+            routerLink="/rewards"
+          >
+            <img
+              src="../assets/gift-fill.svg"
+              height="30"
+              width="60"
+              style="margin-right: 130px"
+            /><a>Rewards & Coupons</a>
+          </button>
+          <button
+            style="
+              width: 80px;
+              margin-right: 90px;
+              border: none;
+              background: none;
+            "
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasRight"
+            aria-controls="offcanvasRight"
+            (click)="getData()"
+          >
+            <img
+              src="../assets/cart4.svg"
+              height="30"
+              style="margin-right: 110px"
+            />Cart
+          </button>
+          <button
+            style="
+              width: 80px;
+              margin-right: 70px;
+              border: none;
+              background: none;
+            "
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+            (click)="getWishData()"
+          >
+            <img
+              src="../assets/heart-fill.svg"
+              height="30"
+              style="margin-right: 90px"
+            />Wishlist
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div
+  class="offcanvas  offcanvas-end"
+  tabindex="-1"
+  id="offcanvasRight"
+  aria-labelledby="offcanvasRightLabel"
+>
+  <div class="offcanvas-header">
+    <h3 class="offcanvas-title" id="offcanvasRightLabel">Your Cart</h3>
+    <img
+      src="https://gifimage.net/wp-content/uploads/2018/05/shopping-cart-gif-8.gif"
+      height="100px"
+      width="100px"
+      style="background: none"
+    />
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+    ></button>
+  </div>
+  <div class="offcanvas-body small" style="padding-bottom: 10px">
+    <div
+      class="card"
+      style="width: 18rem"
+      *ngFor="let product of products"
+      style="border: 2px solid black; border-radius: 5px"
+    >
+      <p
+        class="card-title"
+        style="
+          font-weight: bold;
+          font-size: 20px;
+          background-color: rgb(219, 152, 219);
+        "
+      >
+        {{ product.name }}
+      </p>
+      <img
+        class="card-img-top"
+        [src]="product.imgUrl"
+        height="250px"
+        width="250px"
+      />
+      <p
+        class="card-text"
+        align="center"
+        style="font-size: 20px; text-decoration: line-through"
+      >
+        {{ product.originalPrice | currency: "INR" }}
+      </p>
+      <p class="card-text" align="center" style="font-size: 20px">
+        {{ product.discountedPrice | currency: "INR" }}
+      </p>
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasExample"
+        aria-controls="offcanvasExample"
+        routerLink="/checkout"
+      >
+        Proceed To Checkout
+      </button>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  -->
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel">Your Wishlist</h3>
+        <img
+          src="https://www.cassevabeauty.com/images/wishlist.gif"
+          height="150px"
+          width="150px"
+        />
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div
+        class="modal-body"
+        style="background-color: rgb(236, 203, 236)"
+        *ngFor="let p of products; index as i"
+      >
+        <p
+          class="card-header"
+          style="font-size: larger; color: black; font-weight: bolder"
+        >
+          {{ p.name }}
+        </p>
+        <img
+          class="card-img-top"
+          [src]="p.imgUrl"
+          height="300px"
+          width="300px"
+        />
+        <p
+          class="card-text"
+          style="
+            text-decoration: line-through;
+            font-weight: bolder;
+            font-size: large;
+          "
+        >
+          {{ p.originalPrice | currency: "INR" }}
+        </p>
+        <p class="card-text" style="font-weight: bolder; font-size: large">
+          {{ p.discountedPrice | currency: "INR" }}
+        </p>
+        ...<button type="button" class="btn btn-primary btn-lg btn-block">
+          Add To Cart
+        </button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+
+<!-- Button to open the offcanvas sidebar -->
+
+<router-outlet></router-outlet>

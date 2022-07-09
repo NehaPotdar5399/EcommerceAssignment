@@ -1,0 +1,41 @@
+<div class="container" style="padding:30px 30px; height:650px;"  >
+    <div class="row" style="background-color: rgb(201, 193, 193);">
+        <div class="col-5" >
+            <img
+              class="product_img"
+              style="width: 100%;height:470px; border: 2px inline black; background: none; margin-top: 25px; "
+              [src]="singleProduct.imgUrl"
+              alt=""
+            />
+          </div>
+          <div class="col-7" style="margin-top:40px; padding:23px 45px; background-color:#f7e3d9; height:470px;">
+            <p class="mb-0" style="text-decoration: none; font-family: Verdana, Geneva, Tahoma, sans-serif; font-weight: bolder;">
+                Product Name:{{ singleProduct.name }}
+              </p>
+              <p class="mb-0" style="text-decoration: none">
+                Actual Price:{{ singleProduct.originalPrice | currency:'INR' }}
+              </p>
+              <p class="mb-0" style="text-decoration: none">
+                Discounted Price:{{ singleProduct.discountedPrice | currency: "INR" }}
+              </p>
+              <p class="mb-0" style="text-decoration: none">
+                Category:{{ singleProduct.category }}
+              </p>
+              <p class="mb-0" style="text-decoration: none">
+                Width:{{ singleProduct.Width }}
+              </p>
+              <p class="mb-0" style="text-decoration: none">
+                Height:{{ singleProduct.Height }}
+              </p>
+              <p class="mb-0" style="text-decoration: none">
+                Weight:{{ singleProduct.Weight }}
+              </p>
+              <p class="mb-0" style="text-decoration: none">
+                Description:{{ singleProduct.desc}}
+              </p>
+              <button class="btn btn-primary" style="background-color:#9141ac; margin-top:34px; align-items: stretch; border-radius: 9px;" (click)="addToCart(singleProduct.id)"> <img src="https://www.clipartmax.com/png/middle/55-551124_shopping-cart-yellow-vector-shopping-basket-png.png" height="35px" width="35px" style="background:none; border:none;">| Add To Cart</button>
+             
+          </div>
+          </div>
+          </div>
+          

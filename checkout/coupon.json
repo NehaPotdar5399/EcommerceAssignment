@@ -1,0 +1,53 @@
+{
+    "coupons":[
+    {
+      "id": 1,
+      "code": "EAR00010",
+      "offer": "20% OFF ",
+      "desc": "On minimum purchase of Rs. 999",
+      "discounted_percentage":"20%"
+    },
+    {
+        "id": 2,
+        "code": "NEC00020",
+        "offer": "20% OFF ",
+        "desc": "On minimum purchase of Rs. 1099",
+        "discounted_percentage":"20%"
+      },
+      {
+        "id": 3,
+        "code": "RIN00015",
+        "offer": "15% OFF ",
+        "desc": "On minimum purchase of Rs. 599",
+        "discounted_percentage":"15%%"
+      },
+      {
+        "id": 4,
+        "code": "BRC00025",
+        "offer": "25% OFF ",
+        "desc": "On minimum purchase of Rs. 999",
+        "discounted_percentage":"25%"
+      },
+      {
+        "id": 5,
+        "code": "BRCRIN20",
+        "offer": "20% OFF ",
+        "desc": "On minimum purchase of Rs. 1999",
+        "discounted_percentage":"20%"
+      },
+      {
+        "id": 6,
+        "code": "NECRIN25",
+        "offer": "25% OFF ",
+        "desc": "On minimum purchase of Rs. 2099",
+        "discounted_percentage":"25%"
+      },
+      {
+        "id": 7,
+        "code": "EARNEC20",
+        "offer": "20% OFF ",
+        "desc": "On minimum purchase of Rs. 999",
+        "discounted_percentage":"20%"
+      }
+]
+}
